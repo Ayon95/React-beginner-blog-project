@@ -1,16 +1,13 @@
 import "./App.css";
+import Navbar from "./Navbar.js";
+import Home from "./Home.js";
 
 function App() {
-	const title = "Welcome to Dojo Blog!";
-	const likes = 50;
-	const link = "http://www.google.com";
-
 	return (
 		<div className="App">
+			<Navbar />
 			<div className="content">
-				<h1>{title}</h1>
-				<p>Liked {likes} times</p>
-				<a href={link}>Go to Google</a>
+				<Home />
 			</div>
 		</div>
 	);
