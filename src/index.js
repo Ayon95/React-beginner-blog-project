@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
+// .render() will render The App component to the DOM in the div element with id 'root'
 ReactDOM.render(
   <React.StrictMode>
     <App />
