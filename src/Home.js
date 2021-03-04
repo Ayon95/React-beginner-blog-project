@@ -1,26 +1,23 @@
 import { useState } from "react";
 
 function Home() {
-	const [name, setName] = useState("Ayon");
-	const [age, setAge] = useState(25);
+	const [blogs, setBlogs] = useState([
+		{ title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
+		{ title: "Welcome party!", body: "lorem ipsum...", author: "yoshi", id: 2 },
+		{ title: "Web dev top tips", body: "lorem ipsum...", author: "mario", id: 3 },
+	]);
 
-	function handleClick() {
-		console.log("You clicked the button.");
-		setName(`${name === "Ayon" ? "Maliat" : "Ayon"}`);
-		setAge(`${age === 25 ? 18 : 25}`);
-	}
+	// generating the template for all the blogs
+	const blogsTemplate = blogs.map((blog) => (
+		<div className="blog-preview" key={blog.id}>
+			<h2>{blog.title}</h2>
+			<p>Written by {blog.author}</p>
+		</div>
+	));
 
-	function greetUser(name) {
-		console.log(`Welcome to Dojo Blog, ${name}!`);
-	}
 	return (
 		<div className="home">
-			<h2>Home page</h2>
-			<p>
-				{name} is {age} years old.
-			</p>
-			<button onClick={handleClick}>Click me!</button>
-			<button onClick={() => greetUser("Mushfiq")}>Click me too!</button>
+			<div className="blogs-container">{blogsTemplate}</div>
 		</div>
 	);
 }

@@ -5,10 +5,10 @@ import App from "./App";
 
 // .render() will render The App component to the DOM in the div element with id 'root'
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById("root") // the container for the App component
 );
 
 // If you want to start measuring performance in your app, pass a function
