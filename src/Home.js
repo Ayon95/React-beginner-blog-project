@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogList from "./BlogList.js";
 
 function Home() {
 	const [blogs, setBlogs] = useState([
@@ -7,17 +8,16 @@ function Home() {
 		{ title: "Web dev top tips", body: "lorem ipsum...", author: "mario", id: 3 },
 	]);
 
-	// generating the template for all the blogs
-	const blogsTemplate = blogs.map((blog) => (
-		<div className="blog-preview" key={blog.id}>
-			<h2>{blog.title}</h2>
-			<p>Written by {blog.author}</p>
-		</div>
-	));
+	function handleDelete(id) {
+		// const newBlogs = blogs.filter((blog) => blog.id !== id);
+		// // updating blogs state
+		// setBlogs(newBlogs);
+		console.log(id);
+	}
 
 	return (
 		<div className="home">
-			<div className="blogs-container">{blogsTemplate}</div>
+			<BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />
 		</div>
 	);
 }
