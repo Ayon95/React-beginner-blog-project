@@ -23,14 +23,10 @@ function Home() {
 			})
 			.then((data) => {
 				setBlogs(data);
-				setFetchingData(false);
 				setError(null); // if a subsequent fetch request is successful, then we want to make sure the error is not rendered
 			})
-			.catch((error) => {
-				// if there's an error, then we're no longer fetching data and the loading message will not be rendered
-				setFetchingData(false);
-				setError(error.message);
-			});
+			.catch((error) => setError(error.message))
+			.finally(() => setFetchingData(false)); // no matter if we successfully got data or not, we're no longer fetching data
 	}, []);
 
 	// here we are conditionally templating BlogList component and a loading message; conditional rendering
