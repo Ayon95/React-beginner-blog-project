@@ -14,17 +14,17 @@ html {
 body {
 	font-family: "Quicksand";
 	color: #333;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	background-image: linear-gradient(to right bottom, #f1356d, #eb235f);
 }
 
 h1 {
-	font-size: 2.2rem;
+	font-size: 2.4rem;
 	color: #f1356d;
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 2.1rem;
 }
 
 a:link,
@@ -44,23 +44,23 @@ a:visited {
 	box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.15);
 }
 
-.links a:link,
-.links a:visited {
-	color: rgb(116, 116, 116);
+.navbar__links a:link,
+.navbar__links a:visited {
+	color: rgb(163, 163, 163);
 	font-weight: 500;
 }
 
-.links a:hover {
+.navbar__links a:hover {
 	color: #f1356d;
 }
 
-.links a:not(:last-child) {
+.navbar__links a:not(:last-child) {
 	margin-right: 1.5rem;
 }
 
 .content {
 	max-width: 60rem;
-	margin: 4rem auto;
+	margin: 2.5rem auto;
 	padding: 2rem;
 	background-color: rgb(230, 230, 230);
 	border-radius: 5px;
@@ -81,10 +81,31 @@ a:visited {
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.blog-preview h2 {
+.blog-preview__title {
+	color: #f1356d;
+	font-size: 2rem;
+}
+
+.blog-preview__author {
+	margin-top: 5px;
+	color: rgb(94, 94, 94);
+	font-weight: 500;
+}
+
+.blog-details {
+	padding: 2rem;
+}
+
+.blog__title {
+	margin-bottom: 5px;
 	color: #f1356d;
 }
 
-.blog-preview p {
-	margin-top: 5px;
+.blog__author {
+	font-weight: 600;
+	margin-bottom: 2rem;
+}
+
+.blog__body {
+	line-height: 1.5;
 }

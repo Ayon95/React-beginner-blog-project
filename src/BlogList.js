@@ -5,8 +5,8 @@ function BlogList({ blogs, title }) {
 	const blogsTemplate = blogs.map((blog) => (
 		<div className="blog-preview" key={blog.id}>
 			<Link to={`/blogs/${blog.id}`}>
-				<h2>{blog.title}</h2>
-				<p>Written by {blog.author}</p>
+				<h2 className="blog-preview__title">{blog.title}</h2>
+				<p className="blog-preview__author">Written by {blog.author}</p>
 			</Link>
 		</div>
 	));
