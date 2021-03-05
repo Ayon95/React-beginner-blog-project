@@ -3,6 +3,8 @@ import BlogList from "./BlogList.js";
 
 function Home() {
 	const [blogs, setBlogs] = useState(null);
+	const [fetchingData, setFetchingData] = useState(true);
+	const [error, setError] = useState(null);
 
 	function handleDelete(id) {
 		const newBlogs = blogs.filter((blog) => blog.id !== id);
@@ -14,17 +16,30 @@ function Home() {
 	// no need to worry about starting infinite loop due to changing state because we are using an empty dependency array
 	useEffect(() => {
 		// fetching and loading data
-		fetch("http://localhost:8000/blogs")
-			.then((response) => response.json())
+		fetch("http://localhost:8000/blogsz")
+			.then((response) => {
+				if (!response.ok) throw new Error(`Error ${response.status}: Could not get data ☹`);
+				return response.json();
+			})
 			.then((data) => {
 				setBlogs(data);
-				console.log(data);
+				setFetchingData(false);
+				setError(null); // if a subsequent fetch request is successful, then we want to make sure the error is not rendered
+			})
+			.catch((error) => {
+				// if there's an error, then we're no longer fetching data and the loading message will not be rendered
+				setFetchingData(false);
+				setError(error.message);
 			});
 	}, []);
 
-	// here we are conditionally templating BlogList component
+	// here we are conditionally templating BlogList component and a loading message; conditional rendering
 	return (
-		<div className="home">{blogs && <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />}</div>
+		<div className="home">
+			{error && <p>{error}</p>}
+			{fetchingData && <p>Loading...</p>}
+			{blogs && <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />}
+		</div>
 	);
 }
 
