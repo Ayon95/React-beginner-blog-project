@@ -15,6 +15,7 @@ body {
 	font-family: "Quicksand";
 	color: #333;
 	font-size: 1.5rem;
+	background-image: linear-gradient(to right bottom, #f1356d, #eb235f);
 }
 
 h1 {
@@ -26,6 +27,11 @@ h2 {
 	font-size: 2rem;
 }
 
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -33,12 +39,13 @@ h2 {
 	max-width: 60rem;
 	margin: 0 auto;
 	padding: 2rem;
-	border-bottom: 1px solid #f7b4c8;
+	background-color: #333;
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.15);
 }
 
 .links a:link,
 .links a:visited {
-	text-decoration: none;
 	color: rgb(116, 116, 116);
 	font-weight: 500;
 }
@@ -55,6 +62,13 @@ h2 {
 	max-width: 60rem;
 	margin: 4rem auto;
 	padding: 2rem;
+	background-color: rgb(230, 230, 230);
+	border-radius: 5px;
+	box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.15);
+}
+
+.blog-list__title {
+	margin-bottom: 1.5rem;
 }
 
 /* Blog previews */
