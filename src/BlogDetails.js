@@ -1,6 +1,6 @@
 import { useHistory, useParams } from "react-router";
 import useFetch from "./useFetch";
-// this is one way of using svg icons in a React application
+// this is one way of using svg icons in a React application; this only works with create-react-app
 import { ReactComponent as IconDelete } from "./images/rubbish-bin.svg";
 
 function BlogDetails() {
