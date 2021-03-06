@@ -4,10 +4,32 @@ function Create() {
 	const [title, setTitle] = useState(""); // the initial value of the title will be an empty string
 	const [author, setAuthor] = useState("");
 	const [blogBody, setBlogBody] = useState("");
+	const [addingBlog, setAddingBlog] = useState(false);
+
+	function clearInputFields() {
+		setTitle("");
+		setAuthor("");
+		setBlogBody("");
+	}
+
+	// this handler will handle form submission; it will make a POST request to the json server to add the new blog to our local database
+	async function handleSubmit(event) {
+		event.preventDefault(); // prevent the page from refreshing when a form is submitted
+		const blog = { title, author, blogBody };
+		setAddingBlog(true); // at this point, we are trying to add the blog to the database
+		await fetch("http://localhost:8000/blogs", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(blog),
+		});
+		setAddingBlog(false); // at this point, the blog has been added
+		// we want to clear all the input fields
+		clearInputFields();
+	}
 	return (
 		<div className="create-blog">
 			<h2 className="create-blog__heading">Add a New Blog</h2>
-			<form className="create-blog__form">
+			<form className="create-blog__form" onSubmit={handleSubmit}>
 				<label className="create-blog__label">Blog title:</label>
 				<input
 					className="create-blog__input-box"
@@ -35,7 +57,13 @@ function Create() {
 					onChange={(event) => setBlogBody(event.target.value)}
 				></textarea>
 
-				<button className="create-blog__btn-submit">Add Blog</button>
+				{addingBlog ? (
+					<button disabled className="create-blog__btn-submit">
+						Adding Blog...
+					</button>
+				) : (
+					<button className="create-blog__btn-submit">Add Blog</button>
+				)}
 			</form>
 		</div>
 	);
