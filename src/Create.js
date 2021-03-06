@@ -1,21 +1,24 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Create() {
 	const [title, setTitle] = useState(""); // the initial value of the title will be an empty string
 	const [author, setAuthor] = useState("");
-	const [blogBody, setBlogBody] = useState("");
+	const [body, setBody] = useState("");
 	const [addingBlog, setAddingBlog] = useState(false);
+
+	const history = useHistory();
 
 	function clearInputFields() {
 		setTitle("");
 		setAuthor("");
-		setBlogBody("");
+		setBody("");
 	}
 
 	// this handler will handle form submission; it will make a POST request to the json server to add the new blog to our local database
 	async function handleSubmit(event) {
 		event.preventDefault(); // prevent the page from refreshing when a form is submitted
-		const blog = { title, author, blogBody };
+		const blog = { title, author, body };
 		setAddingBlog(true); // at this point, we are trying to add the blog to the database
 		await fetch("http://localhost:8000/blogs", {
 			method: "POST",
@@ -25,6 +28,8 @@ function Create() {
 		setAddingBlog(false); // at this point, the blog has been added
 		// we want to clear all the input fields
 		clearInputFields();
+		// redirecting the user to the home page after submitting the form
+		history.push("/");
 	}
 	return (
 		<div className="create-blog">
@@ -53,8 +58,8 @@ function Create() {
 					className="create-blog__input-box"
 					type="text"
 					required
-					value={blogBody}
-					onChange={(event) => setBlogBody(event.target.value)}
+					value={body}
+					onChange={(event) => setBody(event.target.value)}
 				></textarea>
 
 				{addingBlog ? (

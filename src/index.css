@@ -92,6 +92,8 @@ a:visited {
 	font-weight: 500;
 }
 
+/* BLOG DETAILS SECTION */
+
 .blog-details {
 	padding: 2rem;
 }
@@ -108,6 +110,14 @@ a:visited {
 
 .blog__body {
 	line-height: 1.5;
+}
+
+.icon-delete {
+	fill: #f1356d;
+	height: 3.5rem;
+	width: 3.5rem;
+	margin-top: 2rem;
+	cursor: pointer;
 }
 
 /* CREATE BLOG SECTION */
@@ -160,4 +170,9 @@ a:visited {
 	border-radius: 4px;
 	cursor: pointer;
 	margin-top: 1rem;
+}
+
+.create-blog__btn-submit:disabled {
+	background-color: #be2654;
+	cursor: not-allowed;
 }
