@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 function Create() {
 	const [title, setTitle] = useState(""); // the initial value of the title will be an empty string
 	const [author, setAuthor] = useState("");
 	const [body, setBody] = useState("");
+	const [date, setDate] = useState("");
 	const [addingBlog, setAddingBlog] = useState(false);
 
 	const history = useHistory();
@@ -19,13 +20,15 @@ function Create() {
 		const now = new Date();
 		const dayNum = now.getDate();
 		const month = now.toLocaleString("default", { month: "short" });
-		return `${month} ${dayNum}, ${now.getFullYear()}`;
+		setDate(`${month} ${dayNum}, ${now.getFullYear()}`);
 	}
+
+	useEffect(createDate, []);
 
 	// this handler will handle form submission; it will make a POST request to the json server to add the new blog to our local database
 	async function handleSubmit(event) {
 		event.preventDefault(); // prevent the page from refreshing when a form is submitted
-		const blog = { title, author, body, date: createDate() };
+		const blog = { title, author, body, date };
 		console.log(blog);
 		setAddingBlog(true); // at this point, we are trying to add the blog to the database
 		await fetch("http://localhost:8000/blogs", {

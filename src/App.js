@@ -1,6 +1,7 @@
 import Navbar from "./Navbar.js";
 import Home from "./Home.js";
 import Create from "./Create.js";
+import Edit from "./Edit.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BlogDetails from "./BlogDetails.js";
 import PageNotFound from "./PageNotFound.js";
@@ -22,6 +23,10 @@ function App() {
 
 						<Route path="/blogs/:id">
 							<BlogDetails />
+						</Route>
+
+						<Route path="/edit/:id">
+							<Edit />
 						</Route>
 
 						<Route path="*">

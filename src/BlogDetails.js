@@ -30,8 +30,8 @@ function BlogDetails() {
 					<div className="blog__body">{blog.body}</div>
 					<div className="icon-container">
 						<IconDelete className="icon-delete" onClick={handleClickDelete} />
-						<Link to="/edit">
-							<IconEdit className="icon-edit" onClick={handleClickDelete} />
+						<Link to={`/edit/${blog.id}`}>
+							<IconEdit className="icon-edit" />
 						</Link>
 					</div>
 				</article>
