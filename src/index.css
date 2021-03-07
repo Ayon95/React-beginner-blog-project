@@ -120,11 +120,17 @@ a:visited {
 	margin-top: 2rem;
 }
 
-.icon-delete {
-	fill: #f1356d;
-	height: 3.5rem;
-	width: 3.5rem;
+.icon-container {
 	margin-top: 2rem;
+	display: flex;
+	gap: 1.5rem;
+}
+
+.icon-delete,
+.icon-edit {
+	fill: #f1356d;
+	height: 2.7rem;
+	width: 2.7rem;
 	cursor: pointer;
 }
 

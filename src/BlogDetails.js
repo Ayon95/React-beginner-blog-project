@@ -1,7 +1,9 @@
 import { useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import useFetch from "./useFetch";
 // this is one way of using svg icons in a React application; this only works with create-react-app
 import { ReactComponent as IconDelete } from "./images/rubbish-bin.svg";
+import { ReactComponent as IconEdit } from "./images/edit.svg";
 
 function BlogDetails() {
 	const { id } = useParams();
@@ -26,7 +28,12 @@ function BlogDetails() {
 					<p className="blog__author">By {blog.author}</p>
 					<p className="date">{blog.date}</p>
 					<div className="blog__body">{blog.body}</div>
-					<IconDelete className="icon-delete" onClick={handleClickDelete} />
+					<div className="icon-container">
+						<IconDelete className="icon-delete" onClick={handleClickDelete} />
+						<Link to="/edit">
+							<IconEdit className="icon-edit" onClick={handleClickDelete} />
+						</Link>
+					</div>
 				</article>
 			)}
 		</div>
