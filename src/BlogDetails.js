@@ -23,7 +23,8 @@ function BlogDetails() {
 			{blog && (
 				<article className="blog">
 					<h2 className="blog__title">{blog.title}</h2>
-					<p className="blog__author">Written by {blog.author}</p>
+					<p className="blog__author">By {blog.author}</p>
+					<p className="date">{blog.date}</p>
 					<div className="blog__body">{blog.body}</div>
 					<IconDelete className="icon-delete" onClick={handleClickDelete} />
 				</article>

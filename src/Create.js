@@ -15,10 +15,18 @@ function Create() {
 		setBody("");
 	}
 
+	function createDate() {
+		const now = new Date();
+		const dayNum = now.getDate();
+		const month = now.toLocaleString("default", { month: "short" });
+		return `${month} ${dayNum}, ${now.getFullYear()}`;
+	}
+
 	// this handler will handle form submission; it will make a POST request to the json server to add the new blog to our local database
 	async function handleSubmit(event) {
 		event.preventDefault(); // prevent the page from refreshing when a form is submitted
-		const blog = { title, author, body };
+		const blog = { title, author, body, date: createDate() };
+		console.log(blog);
 		setAddingBlog(true); // at this point, we are trying to add the blog to the database
 		await fetch("http://localhost:8000/blogs", {
 			method: "POST",

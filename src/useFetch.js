@@ -7,7 +7,7 @@ function useFetch(url) {
 	const [error, setError] = useState(null);
 
 	// using the effect hook to fetch data after the first render
-	// no need to worry about starting infinite loop due to changing state because we are using an empty dependency array
+	// no need to worry about starting infinite loop due to changing state because we are using a dependency array
 	useEffect(() => {
 		const abortController = new AbortController();
 		// fetching and loading data

@@ -88,9 +88,15 @@ a:visited {
 }
 
 .blog-preview__author {
-	margin-top: 5px;
+	margin: 5px 0;
+	color: #333;
+	font-weight: 500;
+}
+
+.date {
 	color: rgb(94, 94, 94);
 	font-weight: 500;
+	font-size: 1.3rem;
 }
 
 /* BLOG DETAILS SECTION */
@@ -105,12 +111,13 @@ a:visited {
 }
 
 .blog__author {
-	font-weight: 600;
-	margin-bottom: 2rem;
+	font-weight: 500;
+	margin-bottom: 7px;
 }
 
 .blog__body {
 	line-height: 1.5;
+	margin-top: 2rem;
 }
 
 .icon-delete {

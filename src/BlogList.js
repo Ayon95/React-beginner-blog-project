@@ -6,7 +6,8 @@ function BlogList({ blogs, title }) {
 		<div className="blog-preview" key={blog.id}>
 			<Link to={`/blogs/${blog.id}`}>
 				<h2 className="blog-preview__title">{blog.title}</h2>
-				<p className="blog-preview__author">Written by {blog.author}</p>
+				<p className="blog-preview__author">By {blog.author}</p>
+				<p className="date">{blog.date}</p>
 			</Link>
 		</div>
 	));
